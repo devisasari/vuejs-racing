@@ -23,6 +23,7 @@ const horses = ref([
   { id: 8, name: 'Star (8)', position: 0 },
 ])
 
+// First start game and second start countdown, then start the race
 const startGame = () => {
   countdown.value = 3
   const interval = setInterval(() => {
@@ -35,7 +36,7 @@ const startGame = () => {
   }, 1000)
 }
 
-const stopGame = () => {
+const restartGame = () => {
   countdown.value = 0
   // Place horses back at start line
   horse1Position.value = -41
@@ -89,7 +90,7 @@ watch(horses, () => {
     <div id="game">
       <div id="game-controls">
         <!-- when click start button, countdown is shown -->
-        <button id="game-controls-start" v-on:click="startGame">Start</button>
+        <button id="game-controls-start-button" v-on:click="startGame">Start</button>
         <div id="game-controls-countdown" v-if="countdown > 0">{{ countdown }}</div>
       </div>
       <div class="vertical-lines">
@@ -134,7 +135,7 @@ watch(horses, () => {
           <div class="game-results-list-item-rank">{{ horse.rank }}</div>
           <div class="game-results-list-item-name">{{ horse.name }}</div>
         </div>
-        <button id="stop-button" v-on:click="stopGame">Restart</button>
+        <button id="restart-button" v-on:click="restartGame">Restart</button>
       </div>
     </div>
     <div id="footer">
@@ -249,7 +250,7 @@ watch(horses, () => {
   border: 1px solid black;
 }
 
-#stop-button {
+#restart-button {
   border-color: rgb(231, 103, 18);
   border-width: 6px;
   width: 100px;
@@ -265,7 +266,7 @@ watch(horses, () => {
   background-color: rgb(0, 0, 170)
 }
 
-#game-controls-start {
+#game-controls-start-button {
   background-color: rgb(85, 231, 27);
   position: relative;
   top: 12px;

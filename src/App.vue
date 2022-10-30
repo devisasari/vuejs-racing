@@ -250,11 +250,12 @@ watch(horses, () => {
 }
 
 #stop-button {
-  border-color: rgb(255, 117, 24);
+  border-color: rgb(231, 103, 18);
   border-width: 6px;
   width: 100px;
   height: 50px;
   margin: 20px 0 0 10px;
+  background: rgb(255, 117, 24);
 }
 
 #game-controls {
@@ -265,6 +266,7 @@ watch(horses, () => {
 }
 
 #game-controls-start {
+  background-color: rgb(85, 231, 27);
   position: relative;
   top: 12px;
   width: 100px;

@@ -4,6 +4,15 @@ https://proteingraduationproject.web.app/
 https://user-images.githubusercontent.com/99514353/198896457-9eda5c5f-223f-4468-9ad8-03fed96b1e20.mp4
 <hr>
 
+## Kullandığım Teknolojiler
+
+- #### Vue.js 3 (Composition API + script setup)
+- #### Vite
+- #### Firebase
+- #### Vitest* 
+
+Not: Vitest'i yeni öğrenmeye başladığım için projeye eklesem de projemi test edemedim.
+
 ## Protein Vue.js Bootcamp Bitirme Projesi
 
 #### Uygulama

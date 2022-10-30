@@ -37,6 +37,7 @@ const startGame = () => {
 
 const stopGame = () => {
   countdown.value = 0
+  // Place horses back at start line
   horse1Position.value = -41
   horse2Position.value = -41
   horse3Position.value = -41
@@ -51,6 +52,7 @@ const stopGame = () => {
 
 const startRace = () => {
   const interval = setInterval(() => {
+    // Horses's speed is random between 20 and 40
     horse1Position.value += Math.floor(Math.random() * 21) + 20
     horse2Position.value += Math.floor(Math.random() * 21) + 20
     horse3Position.value += Math.floor(Math.random() * 21) + 20
@@ -69,6 +71,7 @@ const startRace = () => {
       { id: 7, name: 'Magic (7)', position: horse7Position.value },
       { id: 8, name: 'Star (8)', position: horse8Position.value },
     ]
+    // when "all horses" have crossed the finish line clear the interval
     if (horse1Position.value >= 700 && horse2Position.value >= 700 && horse3Position.value >= 700 && horse4Position.value >= 700 && horse5Position.value >= 700 && horse6Position.value >= 700 && horse7Position.value >= 700 && horse8Position.value >= 700) {
       clearInterval(interval)
       results.value = horses.value.sort((a, b) => b.position - a.position).map((horse, index) => ({ ...horse, rank: index + 1 }))
@@ -85,7 +88,7 @@ watch(horses, () => {
   <div id="app">
     <div id="game">
       <div id="game-controls">
-        <!-- when the click start button countdown is shown -->
+        <!-- when click start button, countdown is shown -->
         <button id="game-controls-start" v-on:click="startGame">Start</button>
         <div id="game-controls-countdown" v-if="countdown > 0">{{ countdown }}</div>
       </div>
@@ -121,7 +124,7 @@ watch(horses, () => {
         </div>
       </div>
     </div>
-    <!-- Show the results list list when the race is over -->
+    <!-- Show the results list when the race is over -->
     <div id="game-results" v-if="results.length > 0">
       <div id="game-results-title">
         <h3>Results</h3>
